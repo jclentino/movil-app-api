@@ -26,7 +26,7 @@ routes.get('/ingresos/listar', verificarToken,  async (req, res) => {
     }
 })
 
-routes.get('/ingresos/buscar', verificarToken,  async (req, res) => {
+routes.post('/ingresos/buscar', verificarToken,  async (req, res) => {
     const { busqueda } = req.body
     const usuario = req?.usuario
     try {

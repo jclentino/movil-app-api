@@ -36,7 +36,7 @@ class IngresoService {
 
     listar (usuario){
         return new Promise((res, rej) => {
-            connection.query(`SELECT * FROM ingresos WHERE id = ${usuario.id}`, (err, result) => {
+            connection.query(`SELECT * FROM ingresos WHERE usuario_id = ${usuario.id}`, (err, result) => {
                 if (err) return rej(`Error inesperado(${err})`)
                 return res(result)
             })
@@ -54,7 +54,8 @@ class IngresoService {
                         nombre LIKE '%${query}%' OR
                         fecha LIKE '%${query}%' OR
                         valor LIKE '%${query}%' OR
-                        fuente LIKE '%${query}%'
+                        fuente LIKE '%${query}%' OR 
+                        descripcion LIKE '%${query}%'
                     )
                 `,
                 (err, result) => {

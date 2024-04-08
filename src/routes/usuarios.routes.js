@@ -18,7 +18,7 @@ routes.post('/usuarios/login', async (req, res) => {
     const { id, contrasena } = req.body
     try {
         const usuario = await usuarioService.obtenerUsuarioPorSusCredenciales(id, contrasena)
-        if (!usuario) throw new Error('Usuario no existe')
+        if (!usuario) throw new Error('Usuario o contraseña incorrectos')
 
         const token = await usuarioService.crearToken(id, contrasena)
         return response(req,res, 200, token)

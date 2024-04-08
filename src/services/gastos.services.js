@@ -36,7 +36,7 @@ class GastoService {
 
     listar (usuario){
         return new Promise((res, rej) => {
-            connection.query(`SELECT * FROM gastos WHERE id = ${usuario.id}`, (err, result) => {
+            connection.query(`SELECT * FROM gastos WHERE usuario_id = ${usuario.id}`, (err, result) => {
                 if (err) return rej(`Error inesperado(${err})`)
                 return res(result)
             })
@@ -54,7 +54,8 @@ class GastoService {
                         nombre LIKE '%${query}%' OR
                         fecha LIKE '%${query}%' OR
                         valor LIKE '%${query}%' OR
-                        categoria LIKE '%${query}%'
+                        categoria LIKE '%${query}%' OR 
+                        descripcion LIKE '%${query}%'
                     )
                 `,
                 (err, result) => {

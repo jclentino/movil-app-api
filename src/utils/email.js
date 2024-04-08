@@ -12,8 +12,7 @@ const transporter = nodemailer.createTransport({
 async function enviarEmail(usuario) {
   await transporter.sendMail({
     from: config.email_user,
-  //   to: `jlv.02@hotmail.com`, 
-    to: `${usuario.email}`, 
+    to: `${usuario[0].email}`, 
     subject: "Cambio de contraseña  ✔",
     text: `Hola ${usuario.primer_nombre}?`,
     html: "<b>Tu contraseña ha sido cambiada exitosamente</b>",

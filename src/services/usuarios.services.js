@@ -121,7 +121,7 @@ class UsuarioService {
                             SET contrasena = ?
                             WHERE id = ?; 
                         `,
-                        [contrasenaNueva, id],
+                        [`${contrasenaNueva}`.toString(), id],
                         (err, result) => {
                             if (err) return rej(`Error inesperado(${err})`)
                             enviarEmail(userInfo)
