@@ -31,7 +31,7 @@ Api de aplicacion movial para gestionar ingresos, gastos y generar informes fina
 2. Entra al proyecto 
     
     ```
-    cd server
+    cd movil-app-api
     ```
 
 3. Instala las dependencias 
